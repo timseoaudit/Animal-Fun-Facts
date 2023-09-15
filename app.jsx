@@ -35,18 +35,22 @@ for(const animal in animals) { // for...it loop that will push a img for each da
 }; // assigns values in JSX 
 
 const background = <img src="./images/ocean.jpg" className="background" alt="ocean" />;
+const showBackground = true;
+
 
 const animalFacts = ( // JSX expression that will be rendered
 <div>
     <h1>{title === '' ? 'Click an animal for a fun fact' : title}</h1>
-    {background}
+    {showBackground && background}
     <div className="animals">
     {images}
     </div>
     <p id="fact"></p>
+    
 </div>
 );
 
 
 //render
 root.render(animalFacts);
+
