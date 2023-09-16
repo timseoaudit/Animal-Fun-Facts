@@ -11,7 +11,7 @@ const root = createRoot(container);
 const title = '';
 
 
-const displayFact = (e) => { //displays a random fact when an animal is clicked
+const DisplayFact = (e) => { //displays a random fact when an animal is clicked
     const animal = e.target.alt  // e.target.alt is the value of the alt attribute of the image that was clicked
     const Index = Math.floor(Math.random() * animals[animal].facts.length); // Math.floor rounds down to the nearest whole number
     const funFact = animals[animal].facts[Index]; // animals[animal] is the object in the animals.js file that matches the animal that was clicked. animals[animal].facts is the array of facts for that animal. Index is the random number we generated above. This line selects a random fact from the array of facts.
@@ -24,7 +24,7 @@ const images = []; // empty array to hold the JSX expressions
 for(const animal in animals) { // for...it loop that will push a img for each data set in the animals.js file 
     images.push(
         (<img 
-        onClick={displayFact}
+        onClick={DisplayFact}
         key= {animal} 
         className="animal" 
         alt={animal} 
@@ -38,7 +38,7 @@ const background = <img src="./images/ocean.jpg" className="background" alt="oce
 const showBackground = true; // boolean value that will determine if the background image will be displayed
 
 
-const animalFacts = ( // JSX expression that will be rendered
+const AnimalFacts = ( // JSX expression that will be rendered
 <div>
     <h1>{title === '' ? 'Click an animal for a fun fact' : title}</h1>
     {showBackground && background} {/* if showBackground is true, display the background image */}
@@ -52,5 +52,5 @@ const animalFacts = ( // JSX expression that will be rendered
 
 
 //render
-root.render(animalFacts);
+root.render(AnimalFacts);
 
